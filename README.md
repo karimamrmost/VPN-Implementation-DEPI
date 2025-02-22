@@ -124,15 +124,3 @@ ip dhcp pool VLAN20
 ```
 ## Conclusion
 By following this project outline and implementing the specified protocols, you will create a secure, efficient, and reliable network connection between the two corporate sites. The use of Cisco Packet Tracer will help simulate and validate the network setup before deployment.
-Footer
-© 2025 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact
-Manage cookies
-Do not share my personal information
-Update README.md by karimamrmost · Pull Request #1 · shahd-Fayez/Implement-VPN 
