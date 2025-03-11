@@ -111,7 +111,7 @@ ip dhcp pool VLAN20
  network 192.168.20.0 255.255.255.0
  default-router 192.168.20.1
  dns-server 8.8.8.8
-
+```
 ### Site B Configuration
 ```plaintext
 ! Site B Configuration
