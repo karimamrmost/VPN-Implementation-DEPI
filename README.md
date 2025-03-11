@@ -11,6 +11,10 @@ This project aims to securely connect two corporate sites using a VPN (Virtual P
 - Implement ACLs to enhance network security.
 
 ## Network Topology
+
+
+![topology](./topology.png)
+
 - **Site A:** 
   - **Router R1**
     - Interface Serial0/0/0: IP address 5.1.0.1 255.255.255.252
