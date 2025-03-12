@@ -1,7 +1,7 @@
 # VPN Implementation for Corporate Sites
 
 ## Project Overview
-This project aims to securely connect two corporate sites using a VPN (Virtual Private Network) and enhance the network's performance, reliability, and security by integrating VLANs, OSPF, DHCP, ACLs, and using Cisco Packet Tracer for simulation.
+This project aims to securely connect two corporate sites using a VPN (Virtual Private Network) and enhance the network's performance, reliability, and security by integrating VLANs, OSPF, EGIRP, BGP, DHCP, ACLs, and using Cisco Packet Tracer for simulation.
 
 ## Objectives
 - Establish a secure site-to-site VPN connection using IPsec.
