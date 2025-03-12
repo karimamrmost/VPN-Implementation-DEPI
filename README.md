@@ -6,7 +6,7 @@ This project aims to securely connect two corporate sites using a VPN (Virtual P
 ## Objectives
 - Establish a secure site-to-site VPN connection using IPsec.
 - Segment the network using VLANs for improved efficiency and security.
-- Enable dynamic routing between sites with OSPF.
+- Enable dynamic routing between sites with OSPF, EGIRP and BGP.
 - Automate IP address allocation with DHCP.
 - Implement ACLs to enhance network security.
 
