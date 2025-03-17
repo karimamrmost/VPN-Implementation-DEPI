@@ -5,7 +5,7 @@ This project aims to securely connect two corporate sites using a VPN (Virtual P
 
 ## Objectives
 - Establish a secure site-to-site VPN connection using IPsec.
-- Segment the network using VLANs for improved efficiency and security.
+- Network segmentation Enhances efficiency and security by logically dividing networks..
 - Enable dynamic routing between sites with OSPF, EGIRP and BGP.
 - Automate IP address allocation with DHCP.
 - Implement ACLs to enhance network security.
@@ -43,7 +43,7 @@ This project aims to securely connect two corporate sites using a VPN (Virtual P
 
 ## Protocols and Technologies
 - **IPsec (Internet Protocol Security):** Secure communication between the two sites.
-- **VLAN (Virtual Local Area Network):** Network segmentation for efficiency and security.
+- **Network segmentation:** Enhances efficiency and security by logically dividing networks..
 - **OSPF (Open Shortest Path First):** Dynamic routing protocol for optimal path selection.
 - **DHCP (Dynamic Host Configuration Protocol):** Automated IP address allocation for network devices.
 - **ACL (Access Control Lists):** Enhanced network security by controlling access based on predefined rules.
