@@ -1,14 +1,18 @@
 # VPN Implementation for Corporate Sites
 
 ## Project Overview
-This project aims to securely connect two corporate sites using a VPN (Virtual Private Network) and enhance the network's performance, reliability, and security by integrating Network segmentation, OSPF, EGIRP, BGP, DHCP, ACLs, and using Cisco Packet Tracer for simulation.
+This project establishes a secure and optimized network connecting two corporate sites (**Company 1 - AS2500** and **Company 2 - AS2700**) using an **IPSec VPN tunnel**. The network design incorporates **dynamic and static routing, NAT, DHCP, ACLs, and BGP** to ensure **security, scalability, and efficient traffic management**.  
+
+Additionally, two remote sites (**HFC and DSL networks**) are included to simulate **branch offices or home users connecting via broadband (cable/DSL)**.  
 
 ## Objectives
-- Establish a secure site-to-site VPN connection using IPsec.
-- Network segmentation Enhances efficiency and security by logically dividing networks..
-- Enable dynamic routing between sites with OSPF, EGIRP and BGP.
-- Automate IP address allocation with DHCP.
-- Implement ACLs to enhance network security.
+- Establish a **secure site-to-site VPN** between **Company 1 (R3, AS2500)** and **Company 2 (R7, AS2700)**.  
+- Implement **dynamic routing protocols (OSPF, EIGRP, and BGP)** for optimal path selection.  
+- Configure **NAT (Static and Dynamic)** for internal-external IP translation.  
+- Automate **IP address allocation via DHCP** for select devices.  
+- Implement **Access Control Lists (ACLs)** to restrict unauthorized access.  
+- Simulate the network using **Cisco Packet Tracer**.  
+
 
 ## Network Topology
 
@@ -35,18 +39,35 @@ This project aims to securely connect two corporate sites using a VPN (Virtual P
     - Interface GigabitEthernet0/0: IP address 10.0.1.1 255.255.255.0
     - Interface GigabitEthernet0/2: IP address 10.0.2.1 255.255.255.0
 
+#### **Remote Site 1 – HFC Network (AS2100)**
+- **Represents**: Broadband ISP using **Hybrid Fiber-Coaxial (HFC)** technology.  
+- **Routing Protocol**: EIGRP  
+- **Routers**: HFC-Home, HFC-Network  
+- **Key Features**: Provides **DHCP, NAT, and restricted access control** for remote users.  
+
+#### **Remote Site 2 – DSL Network (AS2200)**
+- **Represents**: A branch office or remote workers connecting via **DSL broadband**.  
+- **Routing Protocol**: OSPF  
+- **Routers**: DSL-Home, DSL-Network
+- **Key Features**: Acts as an edge network with **NAT, ACLs, and DHCP** for internal clients.  
+
+
 - **Additional Components:**
   - **Switches:**
     - Cisco Catalyst 2960 or 3650 Series
-  - **Servers:**
-    - Dedicated DHCP servers or routers with DHCP capabilities
+  
 
-## Protocols and Technologies
-- **IPsec (Internet Protocol Security):** Secure communication between the two sites.
-- **Network segmentation:** Enhances efficiency and security by logically dividing networks..
-- **OSPF (Open Shortest Path First):** Dynamic routing protocol for optimal path selection.
-- **DHCP (Dynamic Host Configuration Protocol):** Automated IP address allocation for network devices.
-- **ACL (Access Control Lists):** Enhanced network security by controlling access based on predefined rules.
+## **Protocols & Technologies**  
+| **Protocol** | **Purpose** |
+|-------------|------------|
+| **IPSec VPN** | Secure encrypted tunnel between Company 1 and Company 2. |
+| **OSPF** | Dynamic routing in AS2500 & AS2200. |
+| **EIGRP** | Routing for HFC network (AS2100). |
+| **BGP** | Route advertisement between ASes. |
+| **NAT (Static & Dynamic)** | Public-private IP translation. |
+| **DHCP** | Automatic IP allocation for PCs & remote users. |
+| **ACLs** | Network access control & security policies. |
+
 
 ## Implementation Steps
 
@@ -62,24 +83,20 @@ This project aims to securely connect two corporate sites using a VPN (Virtual P
 4. **Configure the VPN Gateway**
    - Set up the VPN gateways on both sites with the IPsec settings.
 
-5. **Set Up VLANs**
-   - Configure VLANs on switches and assign devices to the appropriate VLANs.
-   - Use 802.1Q for VLAN tagging.
-
-6. **Enable OSPF**
+5. **Enable OSPF**
    - Configure OSPF on routers for dynamic routing between the sites.
 
-7. **Set Up DHCP**
+6. **Set Up DHCP**
    - Configure DHCP on routers or dedicated DHCP servers to automatically assign IP addresses to network devices.
    - Define DHCP pools for each VLAN.
 
-8. **Implement ACLs**
+7. **Implement ACLs**
    - Configure ACLs to control access to the network and enhance security.
    - Examples:
      - Ban anyone not belonging to the HFC network from accessing router HFC-Network via Telnet.
      - Ban computers in the 33.0.0.0/24 network from browsing the web but allow all other communication.
 
-9. **Test and Monitor**
+8. **Test and Monitor**
     - Verify connectivity, test the VPN tunnel, and monitor performance and availability.
 
 ## Simulation Using Cisco Packet Tracer
@@ -327,4 +344,8 @@ DSL-H(config-router)#network 192.168.1.0 0.0.0.255 area 0
     R5(config)#interface Serial0/0/0
     R5(config-if)#crypto map MY_CRYPTO_MAP
 ```
+
+## Conclusion
+
+This project successfully implemented a secure, scalable, and efficient network connecting two corporate sites and two remote locations. By integrating IPSec VPN, dynamic routing, NAT, DHCP, and ACLs, we ensured security, performance, and reliability for business operations.
 
