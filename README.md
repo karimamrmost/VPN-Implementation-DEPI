@@ -273,76 +273,42 @@ DSL-H(config-router)#network 99.0.248.0 0.0.0.255 area 0
 DSL-H(config-router)#network 192.168.1.0 0.0.0.255 area 0
 ```
 
-### VPN Configuration between R1 and R5
-#### Configuration for R1:
-
-1. **Define ISAKMP Policy**
+### **VPN Configuration (R3 ↔ R7)**
+#### **On Router R3 (Company 1)**
+```plaintext
+crypto isakmp policy 10
+ authentication pre-share
+ encryption aes
+ hash sha
+ group 2
+ lifetime 86400
+crypto isakmp key MY_SHARED_KEY address 20.0.0.1
+crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac
+crypto map VPN-MAP 10 ipsec-isakmp
+ set peer 20.0.0.1
+ set transform-set VPN-SET
+ match address VPN-ACL
+interface GigabitEthernet0/2
+ crypto map VPN-MAP
+access-list 100 permit ip 32.0.0.0 0.0.0.255 10.0.1.0 0.0.0.255
 ```
-    R1(config)#crypto isakmp policy 1
-    R1(config-isakmp)#authentication pre-share
-    R1(config-isakmp)#encryption aes
-    R1(config-isakmp)#hash sha
-    R1(config-isakmp)#group 2
-    R1(config-isakmp)#lifetime 86400
+On Router R7 (Company 2)
 ```
-2. **Define Pre-shared Key**
-```
-    R1(config)#crypto isakmp key YOUR_SHARED_KEY address 5.3.0.2
-```
-3. **Define Transform Set**
-```
-    R1(config)#crypto ipsec transform-set MY_TRANSFORM_SET esp-aes esp-sha-hmac
-```
-4. **Create Crypto Map**
-```
-    R1(config)#crypto map MY_CRYPTO_MAP 10 ipsec-isakmp
-    R1(config-crypto-map)#set peer 5.3.0.2
-    R1(config-crypto-map)#set transform-set MY_TRANSFORM_SET
-    R1(config-crypto-map)#match address VPN_ACL
-```
-5. **Define ACL for VPN Traffic**
-```
-    R1(config)#access-list VPN_ACL permit ip 13.0.81.0 0.0.0.255 33.0.0.0 0.0.0.255
-```
-6. **Apply Crypto Map to Interface**
-```
-    R1(config)#interface Serial0/0/0
-    R1(config-if)#crypto map MY_CRYPTO_MAP
-```
-#### Configuration for R5:
-
-1. **Define ISAKMP Policy**
-```
-    R5(config)#crypto isakmp policy 1
-    R5(config-isakmp)#authentication pre-share
-    R5(config-isakmp)#encryption aes
-    R5(config-isakmp)#hash sha
-    R5(config-isakmp)#group 2
-    R5(config-isakmp)#lifetime 86400
-```
-2. **Define Pre-shared Key**
-```
-    R5(config)#crypto isakmp key YOUR_SHARED_KEY address 5.1.0.1
-```
-3. **Define Transform Set**
-```
-    R5(config)#crypto ipsec transform-set MY_TRANSFORM_SET esp-aes esp-sha-hmac
-```
-4. **Create Crypto Map**
-```
-    R5(config)#crypto map MY_CRYPTO_MAP 10 ipsec-isakmp
-    R5(config-crypto-map)#set peer 5.1.0.1
-    R5(config-crypto-map)#set transform-set MY_TRANSFORM_SET
-    R5(config-crypto-map)#match address VPN_ACL
-```
-5. **Define ACL for VPN Traffic**
-```
-    R5(config)#access-list VPN_ACL permit ip 33.0.0.0 0.0.0.255 13.0.81.0 0.0.0.255
-```
-6. **Apply Crypto Map to Interface**
-```
-    R5(config)#interface Serial0/0/0
-    R5(config-if)#crypto map MY_CRYPTO_MAP
+crypto isakmp policy 10
+ authentication pre-share
+ encryption aes
+ hash sha
+ group 2
+ lifetime 86400
+crypto isakmp key MY_SHARED_KEY address 32.0.0.10
+crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac
+crypto map VPN-MAP 10 ipsec-isakmp
+ set peer 32.0.0.10
+ set transform-set VPN-SET
+ match address VPN-ACL
+interface GigabitEthernet0/0
+ crypto map VPN-MAP
+access-list 100 permit ip 10.0.1.0 0.0.0.255 32.0.0.0 0.0.0.255
 ```
 
 ## Conclusion
