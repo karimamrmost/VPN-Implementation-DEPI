@@ -6,7 +6,7 @@ This project establishes a secure and optimized network connecting two corporate
 Additionally, two remote sites (**HFC and DSL networks**) are included to simulate **branch offices or home users connecting via broadband (cable/DSL)**.  
 
 ## Objectives
-- Establish a **secure site-to-site VPN** between **Company 1 (R3, AS2500)** and **Company 2 (R7, AS2700)**.  
+- Establish a **secure site-to-site VPN** between **Company 1 (R2, AS2500)** and **Company 2 (R6, AS2700)**.  
 - Implement **dynamic routing protocols (OSPF, EIGRP, and BGP)** for optimal path selection.  
 - Configure **NAT (Static and Dynamic)** for internal-external IP translation.  
 - Automate **IP address allocation via DHCP** for select devices.  
