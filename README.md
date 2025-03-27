@@ -273,8 +273,8 @@ DSL-H(config-router)#network 99.0.248.0 0.0.0.255 area 0
 DSL-H(config-router)#network 192.168.1.0 0.0.0.255 area 0
 ```
 
-### **VPN Configuration (R3 ↔ R7)**
-#### **On Router R3 (Company 1)**
+### **VPN Configuration (R2 ↔ R6)**
+#### **On Router R2 (Company 1)**
 ```plaintext
 crypto isakmp policy 10
  authentication pre-share
@@ -292,7 +292,7 @@ interface GigabitEthernet0/2
  crypto map VPN-MAP
 access-list 100 permit ip 32.0.0.0 0.0.0.255 10.0.1.0 0.0.0.255
 ```
-On Router R7 (Company 2)
+On Router R6 (Company 2)
 ```
 crypto isakmp policy 10
  authentication pre-share
