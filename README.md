@@ -34,7 +34,10 @@ Additionally, two remote sites (**HFC and DSL networks**) are included to simula
   - **Router R5**
     - Interface Serial0/0/0: IP address 7.3.0.2 255.255.255.252
 
-- **Site B:** 
+- **Site B:**
+  - **Router R6**
+    - Interface GigabitEthernet0/0: IP address 5.3.0.2 255.255.255.252
+    - Interface GigabitEthernet0/1: IP address 20.0.0.1 255.255.255.224
   - **Router R7**
     - Interface GigabitEthernet0/0: IP address 10.0.1.1 255.255.255.0
     - Interface GigabitEthernet0/2: IP address 10.0.2.1 255.255.255.0
@@ -300,10 +303,10 @@ crypto isakmp policy 10
  hash sha
  group 2
  lifetime 86400
-crypto isakmp key MY_SHARED_KEY address 32.0.0.10
+crypto isakmp key MY_SHARED_KEY address 31.0.0.1
 crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac
 crypto map VPN-MAP 10 ipsec-isakmp
- set peer 32.0.0.10
+ set peer 31.0.0.1
  set transform-set VPN-SET
  match address VPN-ACL
 interface GigabitEthernet0/0
