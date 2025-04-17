@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/df4d3633-662c-44e9-885b-68013cf6ea9c)# VPN Implementation for Corporate Sites
 
 ## Project Overview
 This project establishes a secure and optimized network connecting two corporate sites (**Company 1 - AS2500** and **Company 2 - AS2700**) using an **IPSec VPN tunnel**. The network design incorporates **dynamic and static routing, NAT, DHCP, ACLs, and BGP** to ensure **security, scalability, and efficient traffic management**.  
