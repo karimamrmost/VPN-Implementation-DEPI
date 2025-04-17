@@ -1,4 +1,4 @@
-# VPN Implementation for Corporate Sites
+![image](https://github.com/user-attachments/assets/df4d3633-662c-44e9-885b-68013cf6ea9c)# VPN Implementation for Corporate Sites
 
 ## Project Overview
 This project establishes a secure and optimized network connecting two corporate sites (**Company 1 - AS2500** and **Company 2 - AS2700**) using an **IPSec VPN tunnel**. The network design incorporates **dynamic and static routing, NAT, DHCP, ACLs, and BGP** to ensure **security, scalability, and efficient traffic management**.  
@@ -25,10 +25,11 @@ Additionally, two remote sites (**HFC and DSL networks**) are included to simula
     - Interface GigabitEthernet0/1: IP address 13.0.81.1 255.255.255.0
   - **Router R2**
     - Interface Serial0/0/0: IP address 5.1.0.2 255.255.255.252
-    - Interface GigabitEthernet0/1: IP address 31.0.0.1 255.255.255.0
+    - Interface GigabitEthernet0/1: IP address 31.0.0.1 255.255.255.248
   - **Router R3**
     - Interface GigabitEthernet0/2: IP address 32.0.0.10 255.255.255.0
   - **Router R4**
+    - Interface GigabitEthernet0/1: IP address 31.0.0.3 255.255.255.248
     - Interface GigabitEthernet0/2: IP address 33.0.0.1 255.255.255.0
 
 - **Site B:**
