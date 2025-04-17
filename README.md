@@ -169,7 +169,7 @@ ip dhcp pool VLAN20
 ### **Lab Setup**
 ## 1. hostnames on all routers
 ```
-Router(config)#hostname R1
+Site A: Lists routers (R1,R2,R3,R4)- Site B: Lists the main router (R5,R6,R7) .
 ```
 
 ### 2. **Set up HFC and PSTN clouds**
